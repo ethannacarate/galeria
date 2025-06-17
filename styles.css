@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   background-color: #f0f2f5; /* Un fondo ligeramente más claro */
   color: #333;
 }
@@ -13,7 +13,6 @@ body {
 .contenedor {
   display: flex;
   min-height: 100vh; 
-  /* Añadimos una sombra para dar profundidad al layout principal */
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
 }
 
@@ -21,7 +20,6 @@ body {
 .nav {
   background-color: #09151A;
   color: #E2CBAF;
-  /* Hacemos que la navegación sea fija y le damos una altura completa */
   position: fixed;
   top: 0;
   left: 0;
@@ -190,11 +188,11 @@ h1::after {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.tarjeta h3,
+
 .tarjeta h4 {
   margin-top: 0;
   margin-bottom: 15px;
-  color: #F7E6D1; /* Color de título contrastante */
+  color: #F7E6D1;
   font-size: 1.7em;
   letter-spacing: 0.5px;
   font-weight: 600;
@@ -226,11 +224,13 @@ h1::after {
   min-height: 350px; /* Mayor altura para la tarjeta principal */
   justify-content: center;
   align-items: center;
+  background-color: #393223;
 }
 
 .tarjeta.mediana {
   grid-area: mediana;
   min-height: 200px;
+  
 }
 
 /* Selecciona las tarjetas pequeñas específicas para asignarles área de grid */
@@ -246,19 +246,6 @@ h1::after {
   justify-content: center;
 }
 
-/* Colores de las tarjetas (centralizados para fácil manejo) */
-.grupo:nth-child(1) .tarjeta.grande { background-color: #393223; }
-.grupo:nth-child(1) .tarjeta.mediana { background-color: #D56C6C; }
-.grupo:nth-child(1) .tarjeta.pequeña { background-color: #312847; }
 
-.grupo:nth-child(2) .tarjeta.grande { background-color: #466C6B; }
-.grupo:nth-child(2) .tarjeta.mediana { background-color: #7C8F76; }
-.grupo:nth-child(2) .tarjeta.pequeña { background-color: #746B59; }
 
-.grupo:nth-child(3) .tarjeta.grande { background-color: #615D52; }
-.grupo:nth-child(3) .tarjeta.mediana { background-color: #9AAC9D; }
-.grupo:nth-child(3) .tarjeta.pequeña { background-color: #A5B0BC; }
 
-.grupo:nth-child(4) .tarjeta.grande { background-color: #353331; }
-.grupo:nth-child(4) .tarjeta.mediana { background-color: #777A7C; }
-.grupo:nth-child(4) .tarjeta.pequeña { background-color: #B58E60; }
