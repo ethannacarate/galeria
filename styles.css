@@ -5,90 +5,260 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f2f4f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5; /* Un fondo ligeramente más claro */
+  color: #333;
 }
 
 .contenedor {
   display: flex;
-  height: 100vh;
+  min-height: 100vh; 
+  /* Añadimos una sombra para dar profundidad al layout principal */
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
 }
 
-/* NAV */
+/* --- Navegación Asimétrica y Mejorada --- */
 .nav {
-  background-color: #37474f;
-  color: white;
-  min-width: 200px;
-  flex: 1;
-  max-width: 300px;
-  padding: 20px;
+  background-color: #09151A;
+  color: #E2CBAF;
+  /* Hacemos que la navegación sea fija y le damos una altura completa */
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 240px; /* Un poco más de ancho para la barra de navegación */
+  height: 100vh; /* Aseguramos que ocupe toda la altura de la ventana */
+  padding: 30px 25px; /* Más padding para aire */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alineamos los ítems a la izquierda */
+  box-shadow: 3px 0 8px rgba(0, 0, 0, 0.3);
 }
 
 .nav h2 {
-  margin-bottom: 20px;
+  font-size: 1.9em; /* Título más grande */
+  margin-bottom: 45px; /* Más espacio debajo del título */
+  letter-spacing: 2px; /* Espaciado de letras */
+  text-transform: uppercase;
+  align-self: center; /* Centramos el título dentro de la nav */
+  color: #F7E6D1; /* Un color ligeramente diferente para el título */
+  font-weight: 700;
 }
 
 .nav ul {
   list-style: none;
+  padding: 0;
+  width: 100%; /* La lista ocupa todo el ancho disponible */
 }
 
 .nav li {
-  margin: 10px 0;
+  margin-bottom: 20px; /* Más espacio entre los ítems */
 }
 
 .nav a {
   text-decoration: none;
-  color: white;
-  transition: 0.3s;
+  color: #E2CBAF;
+  font-size: 1.15em; /* Texto de enlace ligeramente más grande */
+  padding: 12px 20px; /* Mayor área clicable */
+  display: block;
+  border-radius: 8px; /* Bordes redondeados */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  position: relative; /* Para el efecto de hover */
+  overflow: hidden; /* Oculta el pseudo-elemento desbordado */
+}
+
+.nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%; /* Inicia fuera de la vista */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(226, 203, 175, 0.15); /* Efecto de luz */
+  transition: left 0.4s ease;
+  z-index: 0;
+  border-radius: 8px;
+}
+
+.nav a:hover::before {
+  left: 0; /* Desliza el efecto al pasar el ratón */
+}
+
+.nav a span { /* Para asegurar que el texto esté sobre el efecto */
+  position: relative;
+  z-index: 1;
 }
 
 .nav a:hover {
-  color: #000000;
+  color: #ffffff;
+  transform: translateX(10px); /* Ligeramente más de desplazamiento al pasar el ratón */
 }
 
-/* CONTENIDO */
+/* --- Contenido Principal con Espaciado y Fondo --- */
 .contenido {
-  flex: 4;
-  padding: 30px;
+  flex: 1;
+  padding: 40px 50px; /* Mayor padding para un respiro */
+  background-color: #A5B0BC;
+  color: #353331;
+  margin-left: 240px; /* Ajustamos el margen para compensar el ancho fijo de la nav */
+  overflow-y: auto; /* Permite scroll solo en esta sección si el contenido es largo */
 }
 
-.galeria {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-}
-
-.tarjeta {
-  padding: 30px;
-  border-radius: 10px;
-  background-color: #fff;
+h1 {
+  font-size: 3.4em; /* Título principal más grande */
   text-align: center;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  margin-bottom: 50px; /* Más espacio debajo del título */
+  color: #09151A; /* Un color oscuro para el título */
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  position: relative; /* Para añadir un detalle asimétrico */
+  padding-bottom: 20px;
+}
+
+h1::after {
+  content: '✦'; /* Un elemento decorativo asimétrico */
+  position: absolute;
+  bottom: -10px; /* Un poco más abajo */
+  left: 50%;
+  transform: translateX(-50%) rotate(15deg); /* Gira el elemento para asimetría */
+  font-size: 0.8em;
+  color: #E2CBAF;
+}
+
+/* --- Galería con Diseño de Grid Asimétrico --- */
+.galeria {
+  display: grid; /* Cambiamos a Grid para mayor control de la asimetría */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Columnas responsivas */
+  gap: 40px; /* Mayor espacio entre los grupos de tarjetas */
+  padding-top: 30px;
+}
+
+/* --- GRUPOS DE TARJETAS: LA CLAVE DE LA ASIMETRÍA --- */
+.grupo {
+  display: grid; /* Cada grupo es su propio grid */
+  gap: 20px; /* Espacio entre tarjetas dentro del grupo */
+  padding: 25px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.15); /* Fondo semitransparente para los grupos */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  align-content: start; /* Alinea el contenido del grid al inicio */
+}
+
+.grupo:hover {
+  transform: translateY(-10px); /* Efecto de "salto" al pasar el ratón */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Asimetría para grupos impares */
+.grupo:nth-child(odd) {
+  /* La tarjeta grande ocupa más espacio, y las pequeñas se posicionan de manera diferente */
+  grid-template-areas:
+    "grande grande"
+    "mediana pequena1"
+    "mediana pequena2";
+  grid-template-columns: 1fr 1fr; /* Dos columnas para los elementos internos */
+  gap: 15px; /* Ajuste de gap para este patrón */
+}
+
+/* Asimetría para grupos pares */
+.grupo:nth-child(even) {
+  /* Invertimos el patrón o creamos uno nuevo */
+  grid-template-areas:
+    "pequena1 mediana"
+    "pequena2 mediana"
+    "grande grande";
+  grid-template-columns: 1fr 1fr; /* Dos columnas para los elementos internos */
+  gap: 15px; /* Ajuste de gap */
+}
+
+/* --- Estilo de Tarjetas Individuales --- */
+.tarjeta {
+  padding: 25px;
+  border-radius: 12px; /* Bordes más redondeados */
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
 }
 
 .tarjeta:hover {
-  transform: scale(1.05);
+  transform: scale(1.03); /* Ligeramente más grande al pasar el ratón */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Proporciones */
-.grande {
-  flex: 3;
-  background-color: #3a3939;
+.tarjeta h3,
+.tarjeta h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #F7E6D1; /* Color de título contrastante */
+  font-size: 1.7em;
+  letter-spacing: 0.5px;
+  font-weight: 600;
 }
 
-.mediana {
-  flex: 2;
-  background-color: #df0b0b;
+.tarjeta h4 {
+  font-size: 1.2em;
+  font-weight: 500;
 }
 
-.pequeña {
-  flex: 1;
-  background-color: #453e59;
+.tarjeta img {
+  max-width: 100%;
+  height: 180px; /* Altura fija para las imágenes, manteniendo uniformidad */
+  object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+  border-radius: 10px;
+  margin: 15px auto; /* Centra la imagen y da espacio */
+  border: 4px solid rgba(255, 255, 255, 0.3); /* Borde más pronunciado en imágenes */
 }
 
-.grupo {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.tarjeta p {
+  font-size: 1em;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
 }
+
+/* Asignación de áreas de grid para las tarjetas */
+.tarjeta.grande {
+  grid-area: grande;
+  min-height: 350px; /* Mayor altura para la tarjeta principal */
+  justify-content: center;
+  align-items: center;
+}
+
+.tarjeta.mediana {
+  grid-area: mediana;
+  min-height: 200px;
+}
+
+/* Selecciona las tarjetas pequeñas específicas para asignarles área de grid */
+.grupo > .tarjeta.pequeña:nth-of-type(3) {
+  grid-area: pequena1;
+}
+.grupo > .tarjeta.pequeña:nth-of-type(4) {
+  grid-area: pequena2;
+}
+
+.tarjeta.pequeña {
+  min-height: 150px;
+  justify-content: center;
+}
+
+/* Colores de las tarjetas (centralizados para fácil manejo) */
+.grupo:nth-child(1) .tarjeta.grande { background-color: #393223; }
+.grupo:nth-child(1) .tarjeta.mediana { background-color: #D56C6C; }
+.grupo:nth-child(1) .tarjeta.pequeña { background-color: #312847; }
+
+.grupo:nth-child(2) .tarjeta.grande { background-color: #466C6B; }
+.grupo:nth-child(2) .tarjeta.mediana { background-color: #7C8F76; }
+.grupo:nth-child(2) .tarjeta.pequeña { background-color: #746B59; }
+
+.grupo:nth-child(3) .tarjeta.grande { background-color: #615D52; }
+.grupo:nth-child(3) .tarjeta.mediana { background-color: #9AAC9D; }
+.grupo:nth-child(3) .tarjeta.pequeña { background-color: #A5B0BC; }
+
+.grupo:nth-child(4) .tarjeta.grande { background-color: #353331; }
+.grupo:nth-child(4) .tarjeta.mediana { background-color: #777A7C; }
+.grupo:nth-child(4) .tarjeta.pequeña { background-color: #B58E60; }
