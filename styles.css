@@ -197,8 +197,17 @@ h1::after {
 }
 
 /* Áreas de grid para tarjetas */
-.tarjeta.grande { grid-area: grande; min-height: 350px; } /* Asigna la tarjeta a la área de cuadrícula 'grande' y define una altura mínima. */
-.tarjeta.mediana { grid-area: mediana; min-height: 200px; } /* Asigna la tarjeta a la área de cuadrícula 'mediana' y define una altura mínima. */
-.tarjeta.pequeña { min-height: 150px; justify-content: center; } /* Define una altura mínima y centra el contenido verticalmente para tarjetas 'pequeña'. */
-.grupo > .tarjeta.pequeña:nth-of-type(3) { grid-area: pequena1; } /* Asigna la tercera tarjeta 'pequeña' dentro de un grupo a la área de cuadrícula 'pequena1'. */
-.grupo > .tarjeta.pequeña:nth-of-type(4) { grid-area: pequena2; } /* Asigna la cuarta tarjeta 'pequeña' dentro de un grupo a la área de cuadrícula 'pequena2'. */
+.tarjeta.grande { 
+  grid-area: grande; 
+  min-height: 350px; 
+} /* Asigna la tarjeta a la área de cuadrícula 'grande' y define una altura mínima. */
+
+.tarjeta.mediana { 
+  grid-area: mediana; 
+  min-height: 200px; 
+} /* Asigna la tarjeta a la área de cuadrícula 'mediana' y define una altura mínima. */
+
+.tarjeta.pequeña { 
+  min-height: 150px; 
+  justify-content: center; } /* Define una altura mínima y centra el contenido verticalmente para tarjetas 'pequeña'. */
+
