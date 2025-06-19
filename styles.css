@@ -29,7 +29,7 @@ body {
   top: 0; /* Alinea la barra de navegación con el borde superior de la ventana. */
   left: 0; /* Alinea la barra de navegación con el borde izquierdo de la ventana. */
   width: 240px; /* Establece un ancho fijo para la barra de navegación. */
-  height: 100vh; /* Ocupa el 100% de la altura de la ventana de visualización. */
+  height: 100vh; w/* Ocupa el 100% de la altura de la ventana de visualización. */
   padding: 30px 25px; /* Aplica padding interno a la barra de navegación. */
   display: flex; /* Establece el modelo de caja flexible para sus hijos. */
   flex-direction: column; /* Organiza los elementos hijos en una columna. */
@@ -88,7 +88,6 @@ body {
 }
 
 h1 {
-  /* Estilos para los encabezados de nivel 1. */
   font-size: 3.4em; /* Define un tamaño de fuente grande. */
   text-align: center; /* Centra el texto horizontalmente. */
   margin-bottom: 50px; /* Establece un margen inferior. */
@@ -98,16 +97,6 @@ h1 {
   position: relative; /* Establece el contexto de posicionamiento para pseudo-elementos. */
   padding-bottom: 20px; /* Añade un padding inferior. */
 }
-h1::after {
-  /* Estilos para un pseudo-elemento que añade un carácter decorativo después del encabezado H1. */
-  content: '✦'; /* Define el contenido del pseudo-elemento como un carácter de diamante. */
-  position: absolute; /* Posiciona el pseudo-elemento de forma absoluta con respecto a su padre posicionado. */
-  bottom: -10px; /* Desplaza el pseudo-elemento 10 píxeles hacia abajo desde el borde inferior. */
-  left: 50%; /* Centra el pseudo-elemento horizontalmente. */
-  transform: translateX(-50%) rotate(15deg); /* Ajusta el centrado horizontal y rota el pseudo-elemento 15 grados. */
-  font-size: 0.8em; /* Define el tamaño de la fuente para el pseudo-elemento. */
-  color: #E2CBAF; /* Define el color del pseudo-elemento. */
-}
 
 /* GALERÍA */
 .galeria {
@@ -115,19 +104,15 @@ h1::after {
   display: grid; /* Establece el modelo de caja de cuadrícula para sus hijos. */
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Crea columnas responsivas que se ajustan automáticamente. */
   gap: 40px; /* Define el espacio entre las celdas de la cuadrícula. */
-  padding-top: 30px; /* Añade padding superior. */
 }
 
 .grupo {
   /* Estilos para los grupos de tarjetas dentro de la galería. */
   display: grid; /* Establece el modelo de caja de cuadrícula para sus hijos. */
-  gap: 20px; /* Define el espacio entre los elementos dentro del grupo. */
   padding: 25px; /* Aplica padding interno al grupo. */
   border-radius: 15px; /* Aplica un radio a los bordes. */
   background: rgba(255,255,255,0.15); /* Define un color de fondo semitransparente. */
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Añade una sombra al grupo. */
   transition: transform 0.4s, box-shadow 0.4s; /* Define una transición suave para los cambios de transformación y sombra. */
-  align-content: start; /* Alinea el contenido al inicio de la cuadrícula. */
 }
 .grupo:hover {
   /* Estilos para los grupos cuando el cursor se sitúa sobre ellos. */
@@ -160,7 +145,7 @@ h1::after {
   border-radius: 12px; /* Aplica un radio a los bordes. */
   text-align: center; /* Centra el texto horizontalmente. */
   box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Añade una sombra a la tarjeta. */
-  color: #fff; /* Define el color de texto como blanco. */
+  color: #ffffff; /* Define el color de texto como blanco. */
   transition: transform 0.3s, box-shadow 0.3s; /* Define una transición suave para los cambios de transformación y sombra. */
   display: flex; /* Establece el modelo de caja flexible para sus hijos. */
   flex-direction: column; /* Organiza los elementos hijos en una columna. */
@@ -170,19 +155,19 @@ h1::after {
 .tarjeta:hover {
   /* Estilos para las tarjetas cuando el cursor se sitúa sobre ellas. */
   transform: scale(1.03); /* Aumenta ligeramente el tamaño de la tarjeta. */
-  box-shadow: 0 8px 15px rgba(0,0,0,0.2); /* Aumenta el tamaño y la intensidad de la sombra. */
+  box-shadow: 0 10px 15px rgba(0,0,0,0.2); /* Aumenta el tamaño y la intensidad de la sombra. */
 }
 .tarjeta h4 {
   /* Estilos para los encabezados de nivel 4 dentro de las tarjetas. */
   margin: 0 0 15px 0; /* Establece un margen inferior. */
-  color: #F7E6D1; /* Define un color de texto específico. */
+  color: #ffffff; /* Define un color de texto específico. */
   font-size: 1.2em; /* Define el tamaño de la fuente. */
-  font-weight: 600; /* Define el peso de la fuente como seminegrita. */
+  font-weight:600; /* Define el peso de la fuente como seminegrita. */
   letter-spacing: 0.5px; /* Aumenta ligeramente el espaciado entre letras. */
 }
 .tarjeta img {
   /* Estilos para las imágenes dentro de las tarjetas. */
-  max-width: 100%; /* Asegura que la imagen no exceda el ancho de su contenedor. */
+  max-width: 100% ; /* Asegura que la imagen no exceda el ancho de su contenedor. */
   height: 180px; /* Establece una altura fija para la imagen. */
   object-fit: cover; /* Recorta la imagen para que cubra completamente el área del contenedor. */
   border-radius: 10px; /* Aplica un radio a los bordes de la imagen. */
@@ -193,7 +178,7 @@ h1::after {
   /* Estilos para los párrafos dentro de las tarjetas. */
   font-size: 1em; /* Define el tamaño de la fuente. */
   line-height: 1.6; /* Establece la altura de línea para mejorar la legibilidad. */
-  color: rgba(255,255,255,0.95); /* Define un color de texto blanco casi opaco. */
+  color: rgba(255, 255, 255, 0.95); /* Define un color de texto blanco casi opaco. */
 }
 
 /* Áreas de grid para tarjetas */
@@ -209,5 +194,7 @@ h1::after {
 
 .tarjeta.pequeña { 
   min-height: 150px; 
-  justify-content: center; } /* Define una altura mínima y centra el contenido verticalmente para tarjetas 'pequeña'. */
+  justify-content: center;
+ } /* Define una altura mínima y centra el contenido verticalmente para tarjetas 'pequeña'. */
 
+voy a ir a cenar esperame pls
