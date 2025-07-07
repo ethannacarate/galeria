@@ -1,198 +1,241 @@
 /* Reset básico */
 * {
-  /* Aplica un reinicio básico a todos los elementos del DOM. */
-  box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho y alto total de los elementos. */
-  margin: 0; /* Elimina el margen predeterminado de todos los elementos. */
-  padding: 0; /* Elimina el padding predeterminado de todos los elementos. */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  /* Estilos aplicados al cuerpo del documento. */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define una pila de fuentes para el texto. */
-  background: #f0f2f5; /* Establece un color de fondo gris claro para la página. */
-  color: #333; /* Define el color de texto predeterminado como un gris oscuro. */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  color: #333;
 }
 
 .contenedor {
-  /* Estilos para el contenedor principal de la aplicación. */
-  display: flex; /* Establece el modelo de caja flexible para sus hijos directos. */
-  min-height: 100vh; /* Asegura que el contenedor ocupe al menos el 100% de la altura de la ventana de visualización. */
-  box-shadow: 0 0 25px rgba(0,0,0,0.15); /* Añade una sombra sutil al contenedor, mejorando la percepción de profundidad. */
+  display: flex; /* FLEX: contenedor principal en fila */
+  min-height: 100vh;
+  box-shadow: 0 0 25px rgba(0,0,0,0.15);
 }
 
-/* NAV */
+/* --- NAV --- */
+/* Barra lateral de navegación */
 .nav {
-  /* Estilos para la barra de navegación lateral. */
-  background: #000000; /* Define un color de fondo oscuro para la navegación. */
-  color: #F7E6D1; /* Establece un color de texto claro para la navegación. */
-  position: fixed; /* Fija la posición de la barra de navegación en la ventana de visualización. */
-  top: 0; /* Alinea la barra de navegación con el borde superior de la ventana. */
-  left: 0; /* Alinea la barra de navegación con el borde izquierdo de la ventana. */
-  width: 240px; /* Establece un ancho fijo para la barra de navegación. */
-  height: 100vh; w/* Ocupa el 100% de la altura de la ventana de visualización. */
-  padding: 30px 25px; /* Aplica padding interno a la barra de navegación. */
-  display: flex; /* Establece el modelo de caja flexible para sus hijos. */
-  flex-direction: column; /* Organiza los elementos hijos en una columna. */
-  align-items: center; /* Centra los elementos hijos horizontalmente dentro del contenedor flex. */
-  box-shadow: 3px 0 8px rgba(0,0,0,0.3); /* Añade una sombra al lado derecho de la barra de navegación. */
+  background: #000000;         /* Fondo negro */
+  color: #F7E6D1;              /* Texto claro */
+  position: fixed;             /* Fija a la izquierda */
+  width: 240px;                /* Ancho fijo */
+  height: 100vh;               /* Toda la altura de la pantalla */
+  padding: 30px 25px;          /* Espaciado interno */
+  display: flex;               /* Flexbox en columna */
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 3px 0 8px rgba(0,0,0,0.3); /* Sombra lateral */
 }
 
+/* Título del nav */
 .nav h2 {
-  /* Estilos para el título principal dentro de la navegación. */
-  font-size: 1.9em; /* Define el tamaño de la fuente. */
-  margin-bottom: 45px; /* Establece un margen inferior para separar el título de los elementos de la lista. */
-  letter-spacing: 2px; /* Aumenta el espaciado entre letras. */
-  text-transform: uppercase; /* Convierte el texto a mayúsculas. */
-  font-weight: 700; /* Define el peso de la fuente como negrita. */
+  font-size: 1.9em;
+  margin-bottom: 45px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
+/* Lista del nav */
 .nav ul {
-  /* Estilos para la lista no ordenada dentro de la navegación. */
-  list-style: none; /* Elimina los marcadores de lista predeterminados. */
-  width: 100%; /* Asegura que la lista ocupe el ancho completo de su contenedor padre. */
+  list-style: none;            /* Sin viñetas */
+  width: 100%;
 }
 
+/* Elementos de la lista */
 .nav li {
-  /* Estilos para cada elemento de la lista dentro de la navegación. */
-  margin-bottom: 20px; /* Establece un margen inferior para separar los elementos de la lista. */
+  margin-bottom: 20px;
 }
 
+/* Enlaces del nav */
 .nav a {
-  /* Estilos para los enlaces dentro de la navegación. */
-  color: #E2CBAF; /* Define un color de texto específico para los enlaces. */
-  text-decoration: none; /* Elimina la decoración de texto predeterminada (subrayado). */
-  font-size: 1.15em; /* Define el tamaño de la fuente. */
-  padding: 12px 20px; /* Aplica padding interno a los enlaces. */
-  display: block; /* Muestra los enlaces como elementos de bloque, ocupando todo el ancho disponible. */
-  border-radius: 8px; /* Aplica un radio a los bordes para suavizarlos. */
-  transition: background 0.3s, color 0.3s, transform 0.2s; /* Define una transición suave para los cambios de fondo, color y transformación. */
-  position: relative; /* Establece el contexto de posicionamiento para pseudo-elementos o elementos hijos posicionados. */
+  color: #E2CBAF;              /* Color de enlace */
+  text-decoration: none;        /* Sin subrayado */
+  font-size: 1.15em;
+  padding: 12px 20px;
+  display: block;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  position: relative;
 }
 
+/* Efecto hover en enlaces */
 .nav a:hover {
-  /* Estilos para los enlaces cuando el cursor se sitúa sobre ellos. */
-  color: #fff; /* Cambia el color del texto a blanco. */
-  background: rgba(226,203,175,0.15); /* Cambia el color de fondo a un tono semitransparente. */
-  transform: translateX(10px); /* Desplaza el enlace 10 píxeles a la derecha. */
+  color: #fff;
+  background: rgba(226,203,175,0.15);
+  transform: translateX(10px);
 }
 
-/* CONTENIDO */
+/* Contenido principal */
 .contenido {
-  /* Estilos para el área principal de contenido. */
-  flex: 1; /* Permite que el contenido ocupe el espacio restante disponible en el contenedor flex. */
-  padding: 40px 50px; /* Aplica padding interno al área de contenido. */
-  background: #A5B0BC; /* Define un color de fondo para el contenido. */
-  color: #353331; /* Establece el color de texto para el contenido. */
-  margin-left: 240px; /* Aplica un margen izquierdo para compensar el ancho de la barra de navegación fija. */
-  overflow-y: auto; /* Permite el desplazamiento vertical si el contenido excede la altura del contenedor. */
+  flex: 1; /* FLEX: ocupa el espacio restante al lado del nav */
+  padding: 40px 50px;
+  background-color: #A5B0BC;
+  color: #353331;
+  margin-left: 240px;          /* Deja espacio para el nav */
+  overflow-y: auto;
 }
 
+/* Título principal */
 h1 {
-  font-size: 3.4em; /* Define un tamaño de fuente grande. */
-  text-align: center; /* Centra el texto horizontalmente. */
-  margin-bottom: 50px; /* Establece un margen inferior. */
-  color: #09151A; /* Define un color de texto oscuro. */
-  font-weight: 800; /* Define un peso de fuente extra-negro. */
-  letter-spacing: 1.5px; /* Aumenta el espaciado entre letras. */
-  position: relative; /* Establece el contexto de posicionamiento para pseudo-elementos. */
-  padding-bottom: 20px; /* Añade un padding inferior. */
+  font-size: 3.4em;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #09151A;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  position: relative;
+  padding-bottom: 20px;
 }
 
-/* GALERÍA */
+/* --- galeria --- */
+/* Galería de tarjetas */
 .galeria {
-  /* Estilos para el contenedor de la galería de elementos. */
-  display: grid; /* Establece el modelo de caja de cuadrícula para sus hijos. */
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Crea columnas responsivas que se ajustan automáticamente. */
-  gap: 40px; /* Define el espacio entre las celdas de la cuadrícula. */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  padding-top: 30px;
 }
 
+/* Grupo de tarjetas */
 .grupo {
-  /* Estilos para los grupos de tarjetas dentro de la galería. */
-  display: grid; /* Establece el modelo de caja de cuadrícula para sus hijos. */
-  padding: 25px; /* Aplica padding interno al grupo. */
-  border-radius: 15px; /* Aplica un radio a los bordes. */
-  background: rgba(255,255,255,0.15); /* Define un color de fondo semitransparente. */
-  transition: transform 0.4s, box-shadow 0.4s; /* Define una transición suave para los cambios de transformación y sombra. */
+  display: grid;
+  gap: 20px;
+  padding: 25px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  transition: transform 0.4s, box-shadow 0.4s;
+  align-content: start;
 }
+
+/* Efecto hover en grupo */
 .grupo:hover {
-  /* Estilos para los grupos cuando el cursor se sitúa sobre ellos. */
-  transform: translateY(-10px); /* Desplaza el grupo 10 píxeles hacia arriba. */
-  box-shadow: 0 15px 30px rgba(0,0,0,0.25); /* Aumenta el tamaño y la intensidad de la sombra. */
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 }
+
+/* Grid para grupos impares */
 .grupo:nth-child(odd) {
-  /* Estilos para los grupos impares dentro de la galería. */
   grid-template-areas:
     "grande grande"
     "mediana pequena1"
-    "mediana pequena2"; /* Define un diseño de cuadrícula específico usando áreas nombradas. */
-  grid-template-columns: 1fr 1fr; /* Crea dos columnas de igual ancho. */
-  gap: 15px; /* Define el espacio entre las celdas de la cuadrícula. */
+    "mediana pequena2";
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
 }
+
+/* Grid para grupos pares */
 .grupo:nth-child(even) {
-  /* Estilos para los grupos pares dentro de la galería. */
   grid-template-areas:
     "pequena1 mediana"
     "pequena2 mediana"
-    "grande grande"; /* Define un diseño de cuadrícula específico usando áreas nombradas. */
-  grid-template-columns: 1fr 1fr; /* Crea dos columnas de igual ancho. */
-  gap: 15px; /* Define el espacio entre las celdas de la cuadrícula. */
+    "grande grande";
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
 }
 
-/* TARJETAS */
+/* --- TARJETAS BASE --- */
+/* Tarjeta base */
 .tarjeta {
-  /* Estilos base para las tarjetas individuales. */
-  padding: 25px; /* Aplica padding interno a la tarjeta. */
-  border-radius: 12px; /* Aplica un radio a los bordes. */
-  text-align: center; /* Centra el texto horizontalmente. */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Añade una sombra a la tarjeta. */
-  color: #ffffff; /* Define el color de texto como blanco. */
-  transition: transform 0.3s, box-shadow 0.3s; /* Define una transición suave para los cambios de transformación y sombra. */
-  display: flex; /* Establece el modelo de caja flexible para sus hijos. */
-  flex-direction: column; /* Organiza los elementos hijos en una columna. */
-  justify-content: space-between; /* Distribuye el espacio entre los elementos hijos. */
-  border: 2px solid rgba(0,0,0,0.2); /* Añade un borde a la tarjeta. */
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  color: #ffffff;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex; /* FLEX: contenido de la tarjeta en columna */
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid rgba(0,0,0,0.2);
 }
+
+/* Efecto hover en tarjeta */
 .tarjeta:hover {
-  /* Estilos para las tarjetas cuando el cursor se sitúa sobre ellas. */
-  transform: scale(1.03); /* Aumenta ligeramente el tamaño de la tarjeta. */
-  box-shadow: 0 10px 15px rgba(0,0,0,0.2); /* Aumenta el tamaño y la intensidad de la sombra. */
+  transform: scale(1.03);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
 }
+
+/* Título de la tarjeta */
 .tarjeta h4 {
-  /* Estilos para los encabezados de nivel 4 dentro de las tarjetas. */
-  margin: 0 0 15px 0; /* Establece un margen inferior. */
-  color: #ffffff; /* Define un color de texto específico. */
-  font-size: 1.2em; /* Define el tamaño de la fuente. */
-  font-weight:600; /* Define el peso de la fuente como seminegrita. */
-  letter-spacing: 0.5px; /* Aumenta ligeramente el espaciado entre letras. */
+  margin: 0 0 15px 0;
+  color: #F7E6D1;
+  font-size: 1.2em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
+
+/* Imagen de la tarjeta */
 .tarjeta img {
-  /* Estilos para las imágenes dentro de las tarjetas. */
-  max-width: 100% ; /* Asegura que la imagen no exceda el ancho de su contenedor. */
-  height: 180px; /* Establece una altura fija para la imagen. */
-  object-fit: cover; /* Recorta la imagen para que cubra completamente el área del contenedor. */
-  border-radius: 10px; /* Aplica un radio a los bordes de la imagen. */
-  margin: 15px auto; /* Centra la imagen horizontalmente y aplica margen vertical. */
-  border: 4px solid rgba(0,0,0,0.3); /* Añade un borde a la imagen. */
+  max-width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 15px auto;
+  border: 4px solid rgba(0,0,0,0.3);
 }
+
+/* Texto de la tarjeta */
 .tarjeta p {
-  /* Estilos para los párrafos dentro de las tarjetas. */
-  font-size: 1em; /* Define el tamaño de la fuente. */
-  line-height: 1.6; /* Establece la altura de línea para mejorar la legibilidad. */
-  color: rgba(255, 255, 255, 0.95); /* Define un color de texto blanco casi opaco. */
+  font-size: 1em;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.95);
 }
 
 /* Áreas de grid para tarjetas */
-.tarjeta.grande { 
-  grid-area: grande; 
-  min-height: 350px; 
-} /* Asigna la tarjeta a la área de cuadrícula 'grande' y define una altura mínima. */
+.tarjeta.grande    { grid-area: grande;   min-height: 350px; }
+.tarjeta.mediana   { grid-area: mediana;  min-height: 200px; }
+.tarjeta.pequeña   { min-height: 150px; justify-content: center; }
+.grupo > .tarjeta.pequeña:nth-of-type(3) { grid-area: pequena1; }
+.grupo > .tarjeta.pequeña:nth-of-type(4) { grid-area: pequena2; }
 
-.tarjeta.mediana { 
-  grid-area: mediana; 
-  min-height: 200px; 
-} /* Asigna la tarjeta a la área de cuadrícula 'mediana' y define una altura mínima. */
+/* --- COLORES ESPECÍFICOS DE LAS TARJETAS (por personaje y tipo) --- */
 
-.tarjeta.pequeña { 
-  min-height: 150px; 
-  justify-content: center;
- } /* Define una altura mínima y centra el contenido verticalmente para tarjetas 'pequeña'. */
+/* ASTA */
+.tarjeta-asta-principal {
+  background-color: #393223;
+}
+.tarjeta-asta-curiosidad-1 {
+  background-color: #D56C6C;
+}
+.tarjeta-asta-curiosidad-2-3 { /* Ambas curiosidades pequeñas de Asta comparten el mismo color */
+  background-color: #312847;
+}
+
+/* YUNO */
+.tarjeta-yuno-principal {
+  background-color: #466C6B;
+}
+.tarjeta-yuno-curiosidad-1 {
+  background-color: #7C8F76;
+}
+.tarjeta-yuno-curiosidad-2-3 { /* Ambas curiosidades pequeñas de Yuno comparten el mismo color */
+  background-color: #746B59;
+}
+
+/* NOELLE */
+.tarjeta-noelle-principal {
+  background-color: #615D52;
+}
+.tarjeta-noelle-curiosidad-1 {
+  background-color: #9AAC9D;
+}
+.tarjeta-noelle-curiosidad-2-3 { /* Ambas curiosidades pequeñas de Noelle comparten el mismo color */
+  background-color: #A5B0BC;
+}
+
+/* YAMI */
+.tarjeta-yami-principal {
+  background-color: #353331;
+}
+.tarjeta-yami-curiosidad-1 {
+  background-color: #777A7C;
+}
+.tarjeta-yami-curiosidad-2-3 { /* Ambas curiosidades pequeñas de Yami comparten el mismo color */
+  background-color: #B58E60;
+}
