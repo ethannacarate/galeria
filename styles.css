@@ -23,7 +23,7 @@ body {
   background: #000000;         /* Fondo negro */
   color: #F7E6D1;              /* Texto claro */
   position: fixed;             /* Fija a la izquierda */
-  width: 240px;                /* Ancho fijo */
+  width: 240px;                               /* Ancho fijo */
   height: 100vh;               /* Toda la altura de la pantalla */
   padding: 30px 25px;          /* Espaciado interno */
   display: flex;               /* Flexbox en columna */
@@ -37,13 +37,10 @@ body {
   font-size: 1.9em;
   margin-bottom: 45px;
   letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 700;
 }
 
-/* Lista del nav */
 .nav ul {
-  list-style: none;            /* Sin viñetas */
+  list-style: none;
   width: 100%;
 }
 
@@ -61,7 +58,6 @@ body {
   display: block;
   border-radius: 8px;
   transition: background 0.3s, color 0.3s, transform 0.2s;
-  position: relative;
 }
 
 /* Efecto hover en enlaces */
@@ -73,12 +69,10 @@ body {
 
 /* Contenido principal */
 .contenido {
-  flex: 1; /* FLEX: ocupa el espacio restante al lado del nav */
   padding: 40px 50px;
   background-color: #A5B0BC;
   color: #353331;
   margin-left: 240px;          /* Deja espacio para el nav */
-  overflow-y: auto;
 }
 
 /* Título principal */
@@ -87,57 +81,46 @@ h1 {
   text-align: center;
   margin-bottom: 50px;
   color: #09151A;
-  font-weight: 800;
   letter-spacing: 1.5px;
   position: relative;
   padding-bottom: 20px;
 }
 
-/* --- galeria --- */
-/* Galería de tarjetas */
+/* --- tarjetas --- */
+/* Galería principal: usa grid para organizar los grupos de tarjetas */
 .galeria {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
-  padding-top: 30px;
+  display: grid; /* Activa grid */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Columnas responsivas */
+  gap: 40px; /* Espacio entre grupos */
+  padding-top: 30px; /* Separación arriba */
 }
 
-/* Grupo de tarjetas */
+/* Grupo de tarjetas: cada grupo es un grid para sus tarjetas */
 .grupo {
-  display: grid;
-  gap: 20px;
-  padding: 25px;
-  border-radius: 15px;
-  background: rgba(255,255,255,0.15);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-  transition: transform 0.4s, box-shadow 0.4s;
-  align-content: start;
+  display: grid; /* Activa grid en el grupo */
+  gap: 20px; /* Espacio entre tarjetas */
+  padding: 25px; /* Espaciado interno */
+  border-radius: 15px; /* Bordes redondeados */
+  background: rgba(255,255,255,0.15); /* Fondo semitransparente */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Sombra suave */
+  transition: transform 0.4s, box-shadow 0.4s; /* Animación suave */
+  align-content: start; /* Alinea tarjetas arriba si hay espacio extra */
 }
 
-/* Efecto hover en grupo */
+/* Efecto hover en grupo: eleva el grupo al pasar el mouse */
 .grupo:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 }
 
-/* Grid para grupos impares */
 .grupo:nth-child(odd) {
-  grid-template-areas:
-    "grande grande"
-    "mediana pequena1"
-    "mediana pequena2";
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+  gap: 15px; /* Espacio entre tarjetas */
 }
 
-/* Grid para grupos pares */
 .grupo:nth-child(even) {
-  grid-template-areas:
-    "pequena1 mediana"
-    "pequena2 mediana"
-    "grande grande";
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+  gap: 15px; /* Espacio entre tarjetas */
 }
 
 /* --- TARJETAS BASE --- */
@@ -187,34 +170,24 @@ h1 {
   color: rgba(255,255,255,0.95);
 }
 
-/* Áreas de grid para tarjetas */
-.tarjeta.grande    { grid-area: grande;   min-height: 350px; }
-.tarjeta.mediana   { grid-area: mediana;  min-height: 200px; }
-.tarjeta.pequeña   { min-height: 150px; justify-content: center; }
-.grupo > .tarjeta.pequeña:nth-of-type(3) { grid-area: pequena1; }
-.grupo > .tarjeta.pequeña:nth-of-type(4) { grid-area: pequena2; }
-
-/* --- COLORES ESPECÍFICOS DE LAS TARJETAS (por personaje y tipo) --- */
-
-/* ASTA */
 .tarjeta-asta-principal {
   background-color: #393223;
 }
 .tarjeta-asta-curiosidad-1 {
   background-color: #D56C6C;
 }
-.tarjeta-asta-curiosidad-2-3 { /* Ambas curiosidades pequeñas de Asta comparten el mismo color */
+.tarjeta-asta-curiosidad-2-3 { 
   background-color: #312847;
 }
 
-/* YUNO */
+
 .tarjeta-yuno-principal {
   background-color: #466C6B;
 }
 .tarjeta-yuno-curiosidad-1 {
   background-color: #7C8F76;
 }
-.tarjeta-yuno-curiosidad-2-3 { /* Ambas curiosidades pequeñas de Yuno comparten el mismo color */
+.tarjeta-yuno-curiosidad-2-3 {
   background-color: #746B59;
 }
 
@@ -225,7 +198,7 @@ h1 {
 .tarjeta-noelle-curiosidad-1 {
   background-color: #9AAC9D;
 }
-.tarjeta-noelle-curiosidad-2-3 { /* Ambas curiosidades pequeñas de Noelle comparten el mismo color */
+.tarjeta-noelle-curiosidad-2-3 { 
   background-color: #A5B0BC;
 }
 
@@ -236,6 +209,6 @@ h1 {
 .tarjeta-yami-curiosidad-1 {
   background-color: #777A7C;
 }
-.tarjeta-yami-curiosidad-2-3 { /* Ambas curiosidades pequeñas de Yami comparten el mismo color */
+.tarjeta-yami-curiosidad-2-3 { 
   background-color: #B58E60;
 }
